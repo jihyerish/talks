@@ -1,0 +1,414 @@
+<!doctype html>
+<html lang="en" prefix="og: http://ogp.me/ns#">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CLEAN MARKUP = GOOD KARMA.
+      Hi source code lover,
+
+      you're a curious person and a fast learner ;)
+      Let's make something beautiful together. Contribute on Github:
+      https://github.com/webslides/webslides
+
+      Thanks,
+      @jlantunez.
+    -->
+
+    <!-- SEO -->
+    <title>Shadow DOM in Spatial Navigation</title>
+    <meta name="application-name" content="Shadow DOM in Spatial Navigation Talk">
+    <meta name="author" content="Jihye Hong">
+    <meta name="description" content="How Spatial Navigation works for the Shadow DOM.">
+
+    <!-- URL CANONICAL -->
+    <!-- <link rel="canonical" href="http://your-url.com/"> -->
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,700,700i%7CMaitree:200,300,400,600,700&amp;subset=latin-ext" rel="stylesheet">
+
+    <!-- CSS WebSlides -->
+    <link rel="stylesheet" type='text/css' media='all' href="static/css/webslides.css">
+
+    <!-- Optional - CSS SVG Icons (Font Awesome) -->
+    <link rel="stylesheet" type='text/css' media='all' href="static/css/svg-icons.css">
+
+  </head>
+  <body>
+    <main role="main">
+      <article id="webslides" class="vertical">
+        <section>
+          <!--.wrap = container (width: 90%) -->
+          <div class="wrap aligncenter">
+            <h1><strong>Shadow DOM in Spatial Navigation</strong></h1>
+            <p class="text-intro">Jihye Hong (LG Electronics, jh.hong@lge.com)
+            </p>
+          </div>
+          <!-- .end .wrap -->
+        </section>
+
+        <section>
+          <div class="wrap">
+          <h2><strong>How to write scalable CSS?</strong></h2>
+            <div class="content-center">
+              <div class="bg-white shadow">
+                <ul class="flexblock reasons">
+                  <li>
+                    <h2>Scoping styles</h2>
+                  </li>
+                  <li>
+                    <h2>Specificity conflicts</h2>
+                  </li>
+                  <li>
+                    <h2>Non-deterministic matching</h2>
+                  </li>
+                  <li>
+                    <h2>Dependency management</h2>
+                  </li>
+                  <li>
+                    <h2>Removing unused code</h2>
+                  </li>
+                </ul>
+              </div>
+              <!-- .end .bg-white shadow -->
+            </div>
+          </div>
+          <!-- .end .wrap -->
+        </section>
+
+        <section>
+          <div class="wrap">
+            <h2><strong>Web Components</strong></h2>
+            <div class="content-center">
+              <div class="bg-white shadow">
+                <ul class="flexblock specs">
+                  <li>
+                    <h3>
+                      Shadow DOM
+                    </h3>
+                    <p>
+                      Subtree of DOM nodes that you can create on any HTML element.
+                      The shadow DOM subtree gets merged into the main DOM, but unlike the main DOM tree, shadow nodes can't be styled from outside.
+                    </p>
+                  </li>
+                  <li>
+                    <h3>
+                      Custom Elements
+                    </h3>
+                    <p>
+                      Extension of <code>HTMLElement</code> and then get registered on the document for use as a specific HTML tag.
+                    </p>
+                  </li>
+                  <li>
+                    <h3>
+                      HTML Imports
+                    </h3>
+                    <p>
+                      Way to package up a custom element and any of its dependencies into a single file.
+                    </p>
+                  </li>
+                  <li>
+                    <h3>
+                      The template element
+                    </h3>
+                    <p>
+                      Define a reusable subtree of DOM that can be cloned and assign to another DOM node.
+                    </p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <div class="wrap">
+            <h2><strong>Shadow DOM Features</strong></h2>
+            <ul class="flexblock features">
+              <li>
+                <div>
+                  <h2>
+                    Isolated DOM
+                  </h2>
+                  A component's DOM is self-contained.
+                </div>
+              </li>
+              <li>
+                <div>
+                  <h2>
+                    Scoped CSS
+                  </h2>
+                  CSS defined inside shadow DOM is scoped to it. Style rules don't leak out and page styles don't bleed in.
+                </div>
+              </li>
+              <li>
+                <div>
+                  <h2>
+                    Composition
+                  </h2>
+                  Design a declarative, markup-based API for your component.
+                </div>
+              </li>
+              <li>
+                <div>
+                  <h2>
+                    Simplifies CSS
+                  </h2>
+                  Scoped DOM means you can use simple CSS selectors, more generic id/class names, and not worry about naming conflicts.
+                </div>
+              </li>
+              <li>
+                <div>
+                  <h2>
+                    Productivity
+                  </h2>
+                  Think of apps in chunks of DOM rather than one large (global) page.
+                </div>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <div class="wrap">
+            <h2><strong>Shadow DOM Terminology</strong></h2>
+            <div class="grid vertical-align">
+              <div class="column">
+                <ul class="description">
+                  <li>
+                    <h4>Shadow host</h4>
+                    <p>The regular DOM node that the shadow DOM is attached to.</p>
+                  </li>
+                  <li>
+                    <h4>Shadow tree</h4>
+                    <p>The DOM tree inside the shadow DOM.</p>
+                  </li>
+                  <li>
+                    <h4>Shadow boundary</h4>
+                    <p>The place where the shadow DOM ends, and the regular DOM begins.</p>
+                  </li>
+                  <li>
+                    <h4>Shadow root</h4>
+                    <p>The root node of the shadow tree.</p>
+                  </li>
+                </ul>
+              </div>
+              <div class="column">
+                <figure><img class="aligncenter" src="images/shadow-dom.png" alt="WebSlides Files"></figure>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <!--.wrap = container (width: 90%) -->
+          <div class="wrap">
+            <div class="grid vertical-align">
+              <div class="column">
+                <h3><strong>Basic Usage</strong></h3>
+                <p class="text-intro">A <strong>shadow root</strong> is a document fragment that gets attached to a “host” element.</p>
+                <p>The act of attaching a shadow root is how the element gains its shadow DOM. To create shadow DOM for an element,
+                  call <code>element.attachShadow()</code>.</p>
+                <ul>
+                  <li>* The browser already hosts its own internal shadow DOM for the element (&lt;textarea&gt;, &lt;input&gt;).</li>
+                  <li>* It doesn't make sense for the element to host a shadow DOM (&lt;img&gt;).</li>
+                </ul>
+              </div>
+              <!-- .end .column -->
+              <div class="column">
+                <pre>
+const header = document.createElement('header');
+const shadowRoot = header.attachShadow({mode: 'open'});
+shadowRoot.innerHTML = '&lt;h1&gt;Hello Shadow DOM&lt;/h1&gt;';
+
+                  <span class="code-comment">// header.shadowRoot === shadowRoot</span>
+                  <span class="code-comment">// shadowRoot.host === header</span>
+                </pre>
+              </div>
+              <!-- .end .column -->
+            </div>
+            <!-- .end .grid -->
+          </div>
+          <!-- .end .wrap -->
+        </section>
+
+        <section>
+          <div class="wrap">
+            <h2><strong>Shadow DOM Event Model</strong></h2>
+            <p class="text-intro">When an event bubbles up from shadow DOM it's target is adjusted to maintain
+              the encapsulation that shadow DOM provides.
+              That is, events are re-targeted to look like they've come from the component rather than
+              internal elements within your shadow DOM. Some events do not even propagate out of shadow DOM.</p>
+            <ul class="flexblock features">
+              <li>
+                <div>
+                  <h2>
+                    Focus Events
+                  </h2>
+                  blur, focus, focusin, focusout
+                </div>
+              </li>
+              <li>
+                <div>
+                  <h2>
+                    Mouse Events
+                  </h2>
+                  click, dblclick, mousedown, mouseenter, mousemove, etc.
+                </div>
+              </li>
+              <li>
+                <div>
+                  <h2>
+                    Wheel Events
+                  </h2>
+                  wheel
+                </div>
+              </li>
+              <li>
+                <div>
+                  <h2>
+                    Input Events
+                  </h2>
+                  beforeinput, input
+                </div>
+              </li>
+              <li>
+                <div>
+                  <h2>
+                    Keyboard Events
+                  </h2>
+                  keydown, keyup
+                </div>
+              </li>
+              <li>
+                <div>
+                  <h2>
+                    Composition Events
+                  </h2>
+                  compositionstart, compositionupdate, compositionend
+                </div>
+              </li>
+              <li>
+                <div>
+                  <h2>
+                    DragEvent
+                  </h2>
+                  dragstart, drag, dragend, drop, etc.
+                </div>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <!--.wrap = container (width: 90%) -->
+          <div class="wrap">
+            <div class="grid vertical-align">
+              <div class="column">
+                <h3><strong>Handling Focus</strong></h3>
+                  <ul class="flexblock features">
+                    <li><h4><code>mode: 'open'</code></h4>
+                      <h5>The focus event will look like it came from &lt;x-focus&gt;, not the &lt;input&gt;.</h5>
+                      <p><code>document.activeElement</code> will be &lt;x-focus&gt;.</p>
+                      <p><code>document.activeElement.shadowRoot.activeElement</code> will be &lt;input&gt;,</p>
+                      <p>if it's <strong>open</strong> mode.</p>
+                    </li>
+                  </ul>
+                  <ul class="flexblock features">
+                    <li><h4><code>delegatesFocus: true</code></h4>
+                      <h5>Expands the focus behavior of element's within a shadow tree:</h5>
+                      <p>If you click a node inside shadow DOM and the node is not a focusable area, the first focusable area becomes focused.</p>
+                      <p>When a node inside shadow DOM gains focus, <code>:focus</code> applies to the host in addition to the focused element.</p>
+                    </li>
+                  </ul>
+              </div>
+
+              <!-- .end .column -->
+              <div class="column">
+                <pre>
+&lt;a-focus&gt;
+  #shadow-root
+  &lt;input&gt;
+
+  customElements.define('a-focus', class extends HTMLElement {
+    constructor() {
+      super(); // always call super() first in the ctor.
+      const root = this.attachShadow({mode: 'open', delegatesFocus: true});
+      root.innerHTML =
+        `&lt;input type="text" placeholder="Input inside shadow dom"&gt;`;
+    }
+  });
+                </pre>
+              </div>
+              <!-- .end .column -->
+            </div>
+            <!-- .end .grid -->
+          </div>
+          <!-- .end .wrap -->
+        </section>
+
+        <section class="slide-bottom">
+          <div class="wrap">
+            <div class="content-left">
+              <h2>
+                <strong>References</strong>
+              </h2>
+              <div class="grid vertical-align">
+                <div class="column">
+                  <h4>Getting to Start Shadow DOM:</h4>
+                  <ul class="description">
+                    <li><a href="http://w3c.github.io/webcomponents/spec/shadow/" title="W3C Shadow DOM Spec">W3C Shadow DOM Spec</a></li>
+                    <li><a href="https://developers.google.com/web/fundamentals/web-components/shadowdom?hl=ko" title="Shadow DOM v1">Shadow DOM v1 (Google Web Fundamentals)</a></li>
+                    <li><a href="https://www.chromestatus.com/features/4667415417847808" title="Browser Support">Browser Support about Shadow DOM</a></li>
+                  </ul>
+
+                  <h4>Shadow DOM Demo:</h4>
+                  <ul class="description">
+                    <li><a href="https://jihyerish.github.io/spatial-focus-navigation/focus-shadow-dom.html" title="Shadow DOM in Spatial Navigation">Shadow DOM in Spatial Navigation</a></li>
+                  </ul>
+                </div>
+            </div>
+            <!-- .end .content-right -->
+          </div>
+          <!-- .end .wrap -->
+        </section>
+
+        <section class="slide-bottom">
+          <span class="background" style="background-image:url('images/back1.jpg')"></span>
+          <div class="wrap">
+            <div class="content-right">
+              <h2>
+                <strong style="color: white;">Thanks.</strong>
+              </h2>
+              <br>
+              <a href="mailto:jh.hong@lge.com" style="color: black;">Mail to Jihye Hong</a>
+            </div>
+            <!-- .end .content-right -->
+          </div>
+          <!-- .end .wrap -->
+        </section>
+
+      </article>
+      <!-- end article -->
+    </main>
+    <!-- end main -->
+
+   <!-- A global footer
+
+     <footer role="contentinfo">
+      <div class="wrap">
+        <p>An <a href="https://github.com/webslides/webslides">open source solution</a>, by <a href="https://twitter.com/webslides">@webslides</a>.</p>
+      </div>
+    </footer>  -->
+
+    <!-- Required -->
+    <script src="static/js/webslides.js"></script>
+    <script>
+      window.ws = new WebSlides();
+    </script>
+
+    <!-- OPTIONAL - svg-icons.js (fontastic.me - Font Awesome as svg icons) -->
+    <script defer src="static/js/svg-icons.js"></script>
+
+  </body>
+</html>
